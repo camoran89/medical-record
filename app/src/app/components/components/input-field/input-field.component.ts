@@ -31,6 +31,7 @@ export class InputFieldComponent implements ControlValueAccessor, AfterContentIn
   error: EventEmitter<boolean>;
 
   hasError!: boolean;
+  wasStrated!: boolean;
 
   err: string;
   id: string;
@@ -45,6 +46,7 @@ export class InputFieldComponent implements ControlValueAccessor, AfterContentIn
   }
 
   ngAfterContentInit(): void {
+    this.wasStrated = false;
     this.hasError = false;
 
     this.regExp = this.getExpr();
@@ -77,6 +79,7 @@ export class InputFieldComponent implements ControlValueAccessor, AfterContentIn
   }
 
   onInput(event: Event): void {
+    this.wasStrated = true;
     this.base.value = this.inputField.nativeElement.value;
 
     this.checkError();

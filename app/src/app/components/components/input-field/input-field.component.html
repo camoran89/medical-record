@@ -5,8 +5,8 @@
 		<input #InputField matInput type="text" [id]="id" [value]="base.value" [disabled]="base.disabled"
 			[required]="base.required" (focus)="onFocus()" (blur)="onBlur()" (input)="onInput($event)"
 			(keypress)="onKeypress()" />
-		<mat-icon *ngIf="!hasError" matSuffix class="text-success">check</mat-icon>
-		<mat-icon *ngIf="hasError" matSuffix class="text-danger">close</mat-icon>
+		<mat-icon *ngIf="!hasError && wasStrated" matSuffix class="text-success">check</mat-icon>
+		<mat-icon *ngIf="hasError && wasStrated" matSuffix class="text-danger">close</mat-icon>
 	</mat-form-field>
 </div>
 <popup [message]="err" [show]="hasError"></popup>
