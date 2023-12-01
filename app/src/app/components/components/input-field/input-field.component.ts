@@ -99,7 +99,7 @@ export class InputFieldComponent implements ControlValueAccessor, AfterContentIn
   private checkError(): void {
     if (this.base.value.length == 0) {
       this.hasError = true;
-      this.err = `El campo ${this.base.label.toLowerCase()} es requerido.`;
+      this.err = `El campo ${this.base.label.toUpperCase()} es requerido.`;
     } else {
       this.hasError = false;
       this.err = "";
@@ -108,7 +108,7 @@ export class InputFieldComponent implements ControlValueAccessor, AfterContentIn
     if (this.err.length == 0) {
       if (!this.regExp.test(this.base.value)) {
         this.hasError = true;
-        this.err = `El campo ${this.base.label.toLowerCase()} No cumple con el formato.`;
+        this.err = `El campo ${this.base.label.toUpperCase()} no cumple con el formato.`;
       } else {
         this.hasError = false;
         this.err = "";
