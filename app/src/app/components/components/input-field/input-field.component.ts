@@ -72,27 +72,14 @@ export class InputFieldComponent implements ControlValueAccessor, AfterContentIn
   }
 
   onBlur(): void {
+    this.checkError();
     this.emitError();
   }
 
   onInput(event: Event): void {
     this.base.value = this.inputField.nativeElement.value;
 
-    if (this.base.value.length == 0) {
-      this.hasError = true;
-      this.err = `${this.base.label} es requerido.`;
-    } else {
-      this.hasError = false;
-      this.err = "";
-    }
-
-    if (!this.regExp.test(this.base.value)) {
-      this.hasError = true;
-      this.err = "No cumple con el formato.";
-    } else {
-      this.hasError = false;
-      this.err = "";
-    }
+    this.checkError();
 
     if (!this.validator.test(this.base.value)) {
       this.inputField.nativeElement.value = this.base.value.substring(0, this.base.value.length - 1);
@@ -104,6 +91,26 @@ export class InputFieldComponent implements ControlValueAccessor, AfterContentIn
 
   onKeypress(): boolean {
     return this.validator.test(this.base.value);
+  }
+
+  private checkError(): void {
+    if (this.base.value.length == 0) {
+      this.hasError = true;
+      this.err = `El campo ${this.base.label.toLowerCase()} es requerido.`;
+    } else {
+      this.hasError = false;
+      this.err = "";
+    }
+
+    if (this.err.length == 0) {
+      if (!this.regExp.test(this.base.value)) {
+        this.hasError = true;
+        this.err = `El campo ${this.base.label.toLowerCase()} No cumple con el formato.`;
+      } else {
+        this.hasError = false;
+        this.err = "";
+      }
+    }
   }
 
   private emitError(): void {
