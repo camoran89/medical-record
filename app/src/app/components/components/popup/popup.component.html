@@ -1,0 +1,5 @@
+<div *ngIf="show">
+    <div class="popup">
+        <span #Popup class="popuptext" [ngClass]="{ 'show' : show }" [id]="id">{{ message }}</span>
+    </div>
+</div>

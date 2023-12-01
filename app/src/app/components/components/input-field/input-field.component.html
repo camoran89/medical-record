@@ -1,1 +1,12 @@
-<p>input-field works!</p>
+<div class="py-2">
+	<mat-form-field class="w-100" appearance="outline">
+		<mat-label>{{ base.label }}</mat-label>
+		<mat-icon *ngIf="base.icon != ''" matPrefix>{{ base.icon }}</mat-icon>
+		<input #InputField matInput type="text" [id]="id" [value]="base.value" [disabled]="base.disabled"
+			[required]="base.required" (focus)="onFocus()" (blur)="onBlur()" (input)="onInput($event)"
+			(keypress)="onKeypress()" />
+		<mat-icon *ngIf="!hasError" matSuffix class="text-success">check</mat-icon>
+		<mat-icon *ngIf="hasError" matSuffix class="text-danger">close</mat-icon>
+	</mat-form-field>
+</div>
+<popup [message]="err" [show]="hasError"></popup>
