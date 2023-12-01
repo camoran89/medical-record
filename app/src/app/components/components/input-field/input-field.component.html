@@ -2,11 +2,8 @@
 	<mat-form-field class="w-100" appearance="outline">
 		<mat-label>{{ base.label }}</mat-label>
 		<mat-icon *ngIf="base.icon != ''" matPrefix>{{ base.icon }}</mat-icon>
-		<input #InputField matInput type="text" *ngIf="base.format != 'password'"
-		    [id]="id" [value]="base.value" [disabled]="base.disabled" [required]="base.required" 
-			(focus)="onFocus()" (blur)="onBlur()" (input)="onInput($event)" (keypress)="onKeypress()" />
-		<input #InputField matInput type="password" *ngIf="base.format == 'password'"
-		    [id]="id" [value]="base.value" [disabled]="base.disabled" [required]="base.required" 
+		<input #InputField matInput [type]="base.format != 'password' ? 'text' : 'password'" 
+			[id]="id" [value]="base.value" [disabled]="base.disabled" [required]="base.required" 
 			(focus)="onFocus()" (blur)="onBlur()" (input)="onInput($event)" (keypress)="onKeypress()" />
 		<mat-icon *ngIf="!hasError && wasStrated" matSuffix class="text-success">check</mat-icon>
 		<mat-icon *ngIf="hasError && wasStrated" matSuffix class="text-danger">close</mat-icon>
