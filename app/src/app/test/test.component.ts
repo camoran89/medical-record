@@ -19,6 +19,7 @@ export class TestComponent implements OnInit {
   idBase: Base;
   phoneBase: Base;
   emailBase: Base;
+  commentsBase: Base;
   usernameBase: Base;
   passwordBase: Base;
 
@@ -28,6 +29,7 @@ export class TestComponent implements OnInit {
     this.idBase = new Base();
     this.phoneBase = new Base();
     this.emailBase = new Base();
+    this.commentsBase = new Base();
     this.usernameBase = new Base();
     this.passwordBase = new Base();
   }
@@ -49,6 +51,8 @@ export class TestComponent implements OnInit {
 
     this.emailBase.label = "Correo electrónico";
     this.emailBase.format = "email";
+
+    this.commentsBase.label = "Comentarios";
 
     this.usernameBase.label = "Usuario";
     this.usernameBase.format = "username";

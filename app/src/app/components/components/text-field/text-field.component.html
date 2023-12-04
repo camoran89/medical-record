@@ -1,1 +1,12 @@
-<p>text-field works!</p>
+<div class="py-2" [hidden]="!base.visible">
+	<mat-form-field class="w-100" appearance="outline">
+		<mat-label>{{ base.label }}</mat-label>
+		<mat-icon *ngIf="base.icon != ''" matPrefix>{{ base.icon }}</mat-icon>
+		<textarea #TextField matInput [id]="id" [value]="base.value" [disabled]="base.disabled" [required]="base.required"
+			(focus)="onFocus()" (blur)="onBlur()" (input)="onInput($event)">
+        </textarea>
+		<mat-icon *ngIf="base.required && !hasError && wasStrated" matSuffix class="text-success">check</mat-icon>
+		<mat-icon *ngIf="base.required && hasError && wasStrated" matSuffix class="text-danger">close</mat-icon>
+	</mat-form-field>
+</div>
+<popup *ngIf="base.required" [message]="err" [show]="hasError && showPopup"></popup>
