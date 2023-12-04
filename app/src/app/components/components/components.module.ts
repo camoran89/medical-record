@@ -7,18 +7,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { InputFieldComponent } from './input-field/input-field.component';
 import { SelectFieldComponent } from './select-field/select-field.component';
 import { TextFieldComponent } from './text-field/text-field.component';
 import { PopupComponent } from './popup/popup.component';
+import { GenericDialogComponent } from './generic-dialog/generic-dialog.component';
 
 @NgModule({
   declarations: [
     InputFieldComponent,
     SelectFieldComponent,
     TextFieldComponent,
-    PopupComponent
+    PopupComponent,
+    GenericDialogComponent
   ], imports: [
     CommonModule,
     MatFormFieldModule,
@@ -26,12 +29,14 @@ import { PopupComponent } from './popup/popup.component';
     MatInputModule,
     MatTooltipModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ], exports: [
     InputFieldComponent,
     SelectFieldComponent,
     TextFieldComponent,
-    PopupComponent
+    PopupComponent,
+    GenericDialogComponent
   ]
 })
 export class ComponentsModule { }
