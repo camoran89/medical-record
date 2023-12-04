@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 import { InputFieldComponent } from './input-field/input-field.component';
 import { SelectFieldComponent } from './select-field/select-field.component';
@@ -24,7 +25,8 @@ import { PopupComponent } from './popup/popup.component';
     MatIconModule,
     MatInputModule,
     MatTooltipModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ], exports: [
     InputFieldComponent,
     SelectFieldComponent,

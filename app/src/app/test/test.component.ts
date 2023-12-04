@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ComponentsModule } from "../components/components/components.module";
 
-import { Base } from '../components/models/base';
+import { Base, Select } from '../components/models/base';
 
 @Component({
   selector: 'app-test',
@@ -15,6 +15,7 @@ import { Base } from '../components/models/base';
 export class TestComponent implements OnInit {
 
   nameBase: Base;
+  typeBase: Select<string>;
   idBase: Base;
   phoneBase: Base;
   emailBase: Base;
@@ -23,6 +24,7 @@ export class TestComponent implements OnInit {
 
   constructor() {
     this.nameBase = new Base();
+    this.typeBase = new Select<string>();
     this.idBase = new Base();
     this.phoneBase = new Base();
     this.emailBase = new Base();
@@ -33,6 +35,11 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
     this.nameBase.label = "Nombre";
     this.nameBase.format = "only-char";
+    this.nameBase.required = true;
+
+    this.typeBase.label = "Tipo de documento de identidad";
+    this.typeBase.items = ['CC', 'CE', 'TI'];
+    this.typeBase.required = true;
 
     this.idBase.label = "Número de documento de identidad";
     this.idBase.format = "document-number";

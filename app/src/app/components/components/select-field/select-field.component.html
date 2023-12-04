@@ -1,1 +1,13 @@
-<p>select-field works!</p>
+<div class="py-2" [hidden]="!base.visible">
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>{{ base.label }}</mat-label>
+        <mat-icon *ngIf="base.icon != ''" matPrefix>{{ base.icon }}</mat-icon>
+        <mat-select #SelectField [id]="id" [disabled]="base.disabled" [required]="base.required" [multiple]="base.multiple" 
+        (focus)="onFocus()" (blur)="onBlur()" (valueChange)="onValueChange()">
+            @for (item of base.items; track item) {
+                <mat-option [value]="item">{{item}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+</div>
+<popup *ngIf="base.required" [message]="err" [show]="hasError && showPopup"></popup>

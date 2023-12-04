@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
+import { Global } from './global';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,5 +12,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'app';
+
+  constructor() { 
+    new Global();
+  }
 }
