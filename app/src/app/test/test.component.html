@@ -7,4 +7,6 @@
 	<text-field [base]="commentsBase"></text-field>
 	<input-field [base]="usernameBase"></input-field>
 	<input-field [base]="passwordBase"></input-field>
+
+	<generic-table [table]="table" (action)="onTable($event)"></generic-table>
 </div>

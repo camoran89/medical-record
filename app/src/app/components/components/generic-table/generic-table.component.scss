@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+}
+
+.table-actionbar {
+    padding: 2px;
+    display: flex;
+}
+
+.table-actionbar .search-box {
+    flex: 1;
+}
+
+.search-box mat-form-field {
+    width: 100% !important;
+}
+
+.table-actionbar .action-box {
+    flex: 0 0 auto;
+    text-align: right;
+    padding-top: 2px;
+    padding-left: 2%;
+}
+
+.table-actionbar .action-box button {
+    margin-right: 10px;
+}
+
+::ng-deep .action-box button .material-icons {
+    font-size: 24px;
+}
+
+::ng-deep .action-box .mat-mini-fab {
+    height: 50px;
+    width: 50px;
+}
